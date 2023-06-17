@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b6ijjy7ceiroi"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"BackShiny",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Egg",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Egg_Icon",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FrontShiny",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Icon",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Icon_Shiny",
+"speed": 5.0
+}]

@@ -14,7 +14,7 @@ func _ready() -> void:
 	initial_position = position
 
 
-func move(direction : Vector2, speed_factor : float = move_speed) -> void:
+func move(direction : Vector2, speed_factor : float = move_speed) -> void: 
 	var desired_step : Vector2 = direction * GameConstants.TILE_SIZE / 2
 	var current_speed : float = speed_factor
 	var raycast : RayCast2D = get_node("RayCast2D")

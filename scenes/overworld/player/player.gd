@@ -38,7 +38,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if can_move == true:
 		if player_state == PlayerState.TURNING:
-#			sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
+			sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
 			return
 		elif is_moving == false:
 			process_player_input()
