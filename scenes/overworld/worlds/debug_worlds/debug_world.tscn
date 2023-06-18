@@ -1,15 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgn64iiiwm0wb"]
+[gd_scene load_steps=9 format=3 uid="uid://cgn64iiiwm0wb"]
 
 [ext_resource type="PackedScene" uid="uid://juqdy6f44er2" path="res://scenes/overworld/worlds/world_base.tscn" id="1_xla8v"]
 [ext_resource type="Script" path="res://scenes/overworld/maps/map.gd" id="2_3pf1p"]
 [ext_resource type="Script" path="res://resources/map_data/MapData.gd" id="3_gt428"]
+[ext_resource type="AudioStream" uid="uid://xi707nw2kkgd" path="res://assets/audio/music/Place - Phoenix Hill.ogg" id="3_qcvst"]
 [ext_resource type="TileSet" uid="uid://cccn15o2s4whj" path="res://scenes/overworld/maps/tileset_base.tres" id="4_ogaik"]
 [ext_resource type="PackedScene" uid="uid://dhvrvc78d0uf5" path="res://scenes/overworld/player/player.tscn" id="5_n1oaf"]
 
 [sub_resource type="Resource" id="Resource_8gfvr"]
 script = ExtResource("3_gt428")
-name = "Mystery Zone"
+name = "Debug Hill"
 show_area_name = false
+bgm = ExtResource("3_qcvst")
 sound_effects = Array[AudioStream]([])
 TownMapLocation = null
 can_fly = true
@@ -30,12 +32,12 @@ size = Vector2(1632, 992)
 
 [node name="DebugWorld" instance=ExtResource("1_xla8v")]
 
-[node name="Map" type="Node2D" parent="PixelArt/Maps" index="0"]
+[node name="TestMap" type="Node2D" parent="PixelArt/Maps" index="0"]
 texture_filter = 1
 script = ExtResource("2_3pf1p")
 map_data = SubResource("Resource_8gfvr")
 
-[node name="TileMap" type="TileMap" parent="PixelArt/Maps/Map" index="0"]
+[node name="TileMap" type="TileMap" parent="PixelArt/Maps/TestMap" index="0"]
 y_sort_enabled = true
 tile_set = ExtResource("4_ogaik")
 cell_quadrant_size = 32
@@ -79,24 +81,23 @@ layer_5/y_sort_origin = 0
 layer_5/z_index = 10
 layer_5/tile_data = PackedInt32Array()
 
-[node name="Interactables" type="Node2D" parent="PixelArt/Maps/Map" index="1"]
+[node name="Interactables" type="Node2D" parent="PixelArt/Maps/TestMap" index="1"]
 
-[node name="Doors" type="Node2D" parent="PixelArt/Maps/Map" index="2"]
+[node name="Doors" type="Node2D" parent="PixelArt/Maps/TestMap" index="2"]
 
-[node name="MapDataTrigger" type="Area2D" parent="PixelArt/Maps/Map" index="3"]
+[node name="MapDataTrigger" type="Area2D" parent="PixelArt/Maps/TestMap" index="3"]
 collision_layer = 0
 collision_mask = 2
-monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PixelArt/Maps/Map/MapDataTrigger" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PixelArt/Maps/TestMap/MapDataTrigger" index="0"]
 position = Vector2(528, 304)
 shape = SubResource("RectangleShape2D_04k4t")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="PixelArt/Maps/Map" index="4"]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="PixelArt/Maps/TestMap" index="4"]
 position = Vector2(528, 304)
 scale = Vector2(81.6, 49.6)
 
 [node name="Player" parent="PixelArt/Maps" index="1" instance=ExtResource("5_n1oaf")]
 position = Vector2(224, 96)
 
-[connection signal="body_entered" from="PixelArt/Maps/Map/MapDataTrigger" to="PixelArt/Maps/Map" method="_on_map_data_trigger_body_entered" flags=18]
+[connection signal="body_entered" from="PixelArt/Maps/TestMap/MapDataTrigger" to="PixelArt/Maps/TestMap" method="_on_map_data_trigger_body_entered" flags=18]

@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://xi707nw2kkgd"
-path="res://.godot/imported/Place - Phoenix Hill.ogg-85ebeabfaa21cfadd258234a4e500bce.oggvorbisstr"
+path="res://.godot/imported/Place - Phoenix Hill.ogg-7e42709b0fe93653a44d320a6bd721a1.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/audio/Music/Place - Phoenix Hill.ogg"
-dest_files=["res://.godot/imported/Place - Phoenix Hill.ogg-85ebeabfaa21cfadd258234a4e500bce.oggvorbisstr"]
+source_file="res://assets/audio/music/Place - Phoenix Hill.ogg"
+dest_files=["res://.godot/imported/Place - Phoenix Hill.ogg-7e42709b0fe93653a44d320a6bd721a1.oggvorbisstr"]
 
 [params]
 

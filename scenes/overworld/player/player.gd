@@ -8,7 +8,7 @@ const RUN_SPEED : float = 8.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var anim_state : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var raycast: RayCast2D = $RayCast2D
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var bump_stream_player: AudioStreamPlayer = $BumpStreamPlayer
 @onready var sprite: Sprite2D = $Sprite
 
 
@@ -58,15 +58,7 @@ func _physics_process(_delta: float) -> void:
 				anim_state.travel("Walk")
 				move(input_direction)
 		else:
-			sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
-			anim_state.travel("Idle")
-			is_moving = false
-			percent_moved_to_next_tile = 0.0
-			
-			await get_tree().create_timer(0.2).timeout
-			if input_direction != Vector2.ZERO and raycast.is_colliding():
-				if !audio_stream_player.playing or audio_stream_player.get_playback_position() > 0.5:
-					audio_stream_player.play()
+			handle_collisions()
 	
 
 func process_player_input() -> void:
@@ -130,6 +122,17 @@ func set_player_skin() -> void:
 		
 	sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
 
+
+func handle_collisions() -> void:
+	sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
+	anim_state.travel("Idle")
+	is_moving = false
+	percent_moved_to_next_tile = 0.0
+	
+	await get_tree().create_timer(0.2).timeout
+	if input_direction != Vector2.ZERO and raycast.is_colliding():
+		if !bump_stream_player.playing or bump_stream_player.get_playback_position() > 0.5:
+			bump_stream_player.play()
 
 #==================================================================================================
 # Map Warping

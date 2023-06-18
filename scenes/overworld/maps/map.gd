@@ -12,15 +12,6 @@ func _ready() -> void:
 	visible_on_screen_enabler_2d.show()
 
 
-func _on_map_data_trigger_body_entered(body: Node2D) -> void:
-	await get_tree().process_frame
-	print("a")
-	if body is Player:
-		AudioPlayer.play_area_music(self)
-		show_map_name()
-		roll_weather_effect()
-
-
 func show_map_name() -> void:
 	if map_data.show_area_name == false:
 		return
@@ -31,3 +22,12 @@ func roll_weather_effect() -> void:
 	if map_data.weather_pool.is_empty():
 		return
 	#Logic for the weather pool.
+
+
+func _on_map_data_trigger_body_entered(body: Node2D) -> void:
+	await get_tree().process_frame
+	if body is Player:
+		print(map_data.bgm)
+		AudioPlayer.play_area_music(self)
+		show_map_name()
+		roll_weather_effect()

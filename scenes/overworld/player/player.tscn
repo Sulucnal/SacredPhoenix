@@ -1,9 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://dhvrvc78d0uf5"]
+[gd_scene load_steps=60 format=3 uid="uid://dhvrvc78d0uf5"]
 
 [ext_resource type="PackedScene" uid="uid://dun1gs00k3wr4" path="res://scenes/other/effect_camera/effect_camera.tscn" id="1_j65yl"]
 [ext_resource type="Script" path="res://scenes/overworld/player/player.gd" id="1_tjoyb"]
 [ext_resource type="Resource" uid="uid://drlo3pxbcrj24" path="res://scenes/overworld/player/debug_player_data_Male.tres" id="2_6sumn"]
 [ext_resource type="Texture2D" uid="uid://bav8tuql5mq77" path="res://assets/graphics/spritesheets/characters/players/Heros-Aranel_m_walk.png" id="3_ylebv"]
+[ext_resource type="AudioStream" uid="uid://bfgj0rg3olbse" path="res://assets/audio/sound_effects/player/bump.WAV" id="5_wahc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7kwe"]
 size = Vector2(32, 32)
@@ -511,7 +512,7 @@ graph_offset = Vector2(-71, 398)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7jb84"]
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
 collision_layer = 2
@@ -551,5 +552,6 @@ parameters/Walk/blend_position = Vector2(0, 0.0013423)
 position = Vector2(16, 16)
 target_position = Vector2(0, 16)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BumpStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wahc5")
 bus = &"SoundEffects"
