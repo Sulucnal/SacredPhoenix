@@ -28,6 +28,8 @@ var player_skin : String
 var player_skin_scepter : String = ""
 var player_skin_gender : String
 
+var last_warp_connection_id : int = -1
+
 
 func _ready() -> void:
 	can_move = true
@@ -35,11 +37,13 @@ func _ready() -> void:
 	set_player_skin()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if can_move == true:
 		if player_state == PlayerState.TURNING:
-			sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
-			return
+			if Input.is_action_pressed("cancel"):
+				sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_run.png")
+			else:
+				sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
 		elif is_moving == false:
 			process_player_input()
 		elif input_direction != Vector2.ZERO and !raycast.is_colliding():
@@ -125,3 +129,25 @@ func set_player_skin() -> void:
 		player_skin_scepter = "-sans-sceptre"
 		
 	sprite.texture = load("res://assets/graphics/spritesheets/characters/players/Heros-" + player_skin + player_skin_scepter + player_skin_gender + "_walk.png")
+
+
+#==================================================================================================
+# Map Warping
+#==================================================================================================
+
+func warp_handler(map_transition_area : Area2D) -> void:
+	if map_transition_area.new_area == null or map_transition_area.connection_id == null:
+		print(map_transition_area.new_area)
+		print(map_transition_area.connection_id)
+		return
+	last_warp_connection_id = map_transition_area.connection_id
+	get_tree().paused = true
+#	await Transition.slide_begin(map_transition_area.transition_direction)
+	call_deferred("warp", map_transition_area.new_area)
+#	Transition.slide_end(map_transition_area.transition_direction)
+	get_parent().animated_sprite.play(map_transition_area.facing_position)
+	get_tree().paused = false
+
+
+func warp(new_area_path : String) -> void:
+	MapSwapper.map_swap(self.get_parent(), new_area_path)

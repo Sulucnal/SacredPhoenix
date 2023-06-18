@@ -30,6 +30,8 @@ GameConstants="*res://autoloads/GameConstants.gd"
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/graphics/ui/other/Curseur-celtique-40px.png"
+mouse_cursor/tooltip_position_offset=Vector2(30, 30)
 
 [input]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xi707nw2kkgd"
+path="res://.godot/imported/Place - Phoenix Hill.ogg-85ebeabfaa21cfadd258234a4e500bce.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Music/Place - Phoenix Hill.ogg"
+dest_files=["res://.godot/imported/Place - Phoenix Hill.ogg-85ebeabfaa21cfadd258234a4e500bce.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
