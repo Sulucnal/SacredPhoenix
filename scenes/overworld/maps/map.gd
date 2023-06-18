@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_map_data_trigger_body_entered(body: Node2D) -> void:
-	await get_tree().physics_frame
+	await get_tree().process_frame
 	print("a")
 	if body is Player:
 		AudioPlayer.play_area_music(self)

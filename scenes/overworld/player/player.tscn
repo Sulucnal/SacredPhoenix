@@ -520,15 +520,17 @@ script = ExtResource("1_tjoyb")
 player_data = ExtResource("2_6sumn")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(16, 0)
 texture = ExtResource("3_ylebv")
 hframes = 4
 vframes = 4
 frame = 12
 
 [node name="Camera" parent="." instance=ExtResource("1_j65yl")]
+position = Vector2(16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_k7kwe")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -546,6 +548,7 @@ parameters/Turn/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0.0013423)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(16, 16)
 target_position = Vector2(0, 16)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
