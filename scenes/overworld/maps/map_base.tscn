@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxla4ft6q53pt"]
+
+[ext_resource type="Script" path="res://scenes/overworld/maps/map.gd" id="1_40hw1"]
+[ext_resource type="Script" path="res://resources/map_data/MapData.gd" id="2_ewqk0"]
+[ext_resource type="TileSet" uid="uid://cccn15o2s4whj" path="res://scenes/overworld/maps/tileset_base.tres" id="3_5rkkq"]
+
+[sub_resource type="Resource" id="Resource_8gfvr"]
+script = ExtResource("2_ewqk0")
+name = "Mystery Zone"
+show_area_name = false
+sound_effects = Array[AudioStream]([])
+TownMapLocation = null
+can_fly = true
+weather_pool = Array[Resource]([])
+encounter_day = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_night = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_surf = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_old_rod = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_good_rod = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_super_rod = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_headbutt_tree = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_rock_smash = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_honey_tree = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+encounter_phenomenon = Array[Resource("res://resources/encounter/Encounter.gd")]([])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04k4t"]
+size = Vector2(64, 64)
+
+[node name="Map" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_40hw1")
+map_data = SubResource("Resource_8gfvr")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("3_5rkkq")
+cell_quadrant_size = 32
+format = 2
+layer_0/name = "Ground"
+layer_0/z_index = -1
+layer_1/name = "Props"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Props2"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="MapDataTrigger" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDataTrigger"]
+shape = SubResource("RectangleShape2D_04k4t")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+visible = false
+position = Vector2(-1.90735e-06, -1.90735e-06)
+scale = Vector2(3.2, 3.2)
+
+[connection signal="body_entered" from="MapDataTrigger" to="." method="_on_map_data_trigger_body_entered"]

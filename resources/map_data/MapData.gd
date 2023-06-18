@@ -27,6 +27,9 @@ class_name MapData
 ## Works using the logic from Generation VI.[br]
 ## To learn more about it, go to [url]https://bulbapedia.bulbagarden.net/wiki/Breakable_rock#Generation_VI[/url]
 @export var rock_smash_items : Resource
+## The various weather the player can encounter in this map.[br]
+## The probability of a certain weather happening is calculated using weighted distribution.
+@export var weather_pool : Array[Resource]
 ## The Pokémon the player can encounter here.[br]
 ## Unused encounter tables can be left empty.[br]
 ## To learn more about it, go to [url]https://godomon.fandom.com/wiki/Godomon_Wiki/Map#Encounters[/url]
