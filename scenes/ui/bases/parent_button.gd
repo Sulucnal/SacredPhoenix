@@ -1,4 +1,5 @@
 extends Button
+class_name ParentButton
 
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer

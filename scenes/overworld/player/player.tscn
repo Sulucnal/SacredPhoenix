@@ -1,10 +1,11 @@
-[gd_scene load_steps=60 format=3 uid="uid://dhvrvc78d0uf5"]
+[gd_scene load_steps=61 format=3 uid="uid://dhvrvc78d0uf5"]
 
 [ext_resource type="PackedScene" uid="uid://dun1gs00k3wr4" path="res://scenes/other/effect_camera/effect_camera.tscn" id="1_j65yl"]
 [ext_resource type="Script" path="res://scenes/overworld/player/player.gd" id="1_tjoyb"]
 [ext_resource type="Resource" uid="uid://drlo3pxbcrj24" path="res://scenes/overworld/player/debug_player_data_Male.tres" id="2_6sumn"]
 [ext_resource type="Texture2D" uid="uid://bav8tuql5mq77" path="res://assets/graphics/spritesheets/characters/players/Heros-Aranel_m_walk.png" id="3_ylebv"]
 [ext_resource type="AudioStream" uid="uid://bfgj0rg3olbse" path="res://assets/audio/sound_effects/player/bump.WAV" id="5_wahc5"]
+[ext_resource type="PackedScene" uid="uid://dl2b06s7uh3e1" path="res://scenes/ui/pause_menu/pause_menu.tscn" id="6_2f0fa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7kwe"]
 size = Vector2(32, 32)
@@ -555,3 +556,7 @@ target_position = Vector2(0, 16)
 [node name="BumpStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wahc5")
 bus = &"SoundEffects"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("6_2f0fa")]

@@ -1,0 +1,228 @@
+[gd_scene load_steps=15 format=3 uid="uid://dl2b06s7uh3e1"]
+
+[ext_resource type="Shader" path="res://shaders/box_blur.gdshader" id="1_ftwb5"]
+[ext_resource type="PackedScene" uid="uid://c0d2wune1eawn" path="res://scenes/ui/pause_menu/pause_menu_button.tscn" id="2_xisfn"]
+[ext_resource type="Texture2D" uid="uid://1j5l1tfyk2o4" path="res://assets/graphics/ui/pause_menu/menu_icons.png" id="3_vc4pl"]
+[ext_resource type="Texture2D" uid="uid://cv1yqqedc2x0m" path="res://assets/graphics/ui/pause_menu/horloge/Background date.png" id="4_1ph12"]
+[ext_resource type="Texture2D" uid="uid://c5i5bq8vvedor" path="res://assets/graphics/ui/pause_menu/horloge/Ete 64px.png" id="5_t244d"]
+[ext_resource type="FontFile" uid="uid://dc00oj7d032bv" path="res://assets/fonts/PixAntiqua.ttf" id="6_s4xuu"]
+[ext_resource type="Texture2D" uid="uid://c7lieecrfix26" path="res://assets/graphics/ui/pause_menu/horloge/Background heure.png" id="7_48mqv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmnjo"]
+shader = ExtResource("1_ftwb5")
+shader_parameter/lod = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ev7h"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 22, 23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y5hs"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 44, 23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuyh5"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 66, 23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkylw"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 88, 23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ue1i"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 110, 23, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3il5"]
+atlas = ExtResource("3_vc4pl")
+region = Rect2(0, 132, 23, 22)
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rmnjo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_right = -128.0
+offset_bottom = 249.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsContainer"]
+layout_mode = 2
+
+[node name="PauseMenuButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="PauseMenuButton2" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton2" index="1"]
+texture = SubResource("AtlasTexture_8ev7h")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton2" index="2"]
+text = "Pokémon
+"
+
+[node name="PauseMenuButton3" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton3" index="1"]
+texture = SubResource("AtlasTexture_7y5hs")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton3" index="2"]
+text = "Bag"
+
+[node name="PauseMenuButton4" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton4" index="1"]
+texture = SubResource("AtlasTexture_xuyh5")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton4" index="2"]
+text = "Aranel"
+
+[node name="PauseMenuButton5" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton5" index="1"]
+texture = SubResource("AtlasTexture_tkylw")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton5" index="2"]
+text = "Save
+"
+
+[node name="PauseMenuButton6" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton6" index="1"]
+texture = SubResource("AtlasTexture_5ue1i")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton6" index="2"]
+text = "Options"
+
+[node name="PauseMenuButton7" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+layout_mode = 2
+
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton7" index="1"]
+texture = SubResource("AtlasTexture_l3il5")
+
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton7" index="2"]
+text = "Exit"
+
+[node name="CalendarContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CalendarBackground" type="TextureRect" parent="CalendarContainer"]
+layout_mode = 2
+offset_right = 320.0
+offset_bottom = 64.0
+texture = ExtResource("4_1ph12")
+
+[node name="SeasonIcon" type="TextureRect" parent="CalendarContainer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_t244d")
+
+[node name="SeasonLabel" type="Label" parent="CalendarContainer"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.447
+anchor_top = 0.656
+anchor_right = 0.447
+anchor_bottom = 0.656
+offset_left = -103.04
+offset_top = -13.984
+offset_right = 102.96
+offset_bottom = 14.016
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_s4xuu")
+theme_override_font_sizes/font_size = 24
+text = "Méria 2 Solios 500"
+horizontal_alignment = 1
+
+[node name="ClockContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="ClockBackground" type="TextureRect" parent="ClockContainer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_right = 183.0
+grow_vertical = 0
+texture = ExtResource("7_48mqv")
+
+[node name="Label" type="Label" parent="ClockContainer"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -36.0
+offset_right = 61.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_s4xuu")
+theme_override_font_sizes/font_size = 24
+text = "99:99"
+
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton2"]
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton3"]
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton4"]
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton5"]
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton6"]
+[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton7"]

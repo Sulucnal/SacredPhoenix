@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyxulstoqg4k"]
+[gd_scene load_steps=3 format=3 uid="uid://dyxulstoqg4k"]
 
 [ext_resource type="Script" path="res://scenes/ui/bases/parent_button.gd" id="1_cofon"]
+[ext_resource type="AudioStream" uid="uid://ssitwsdetnmy" path="res://assets/audio/sound_effects/ui/general/Choose.WAV" id="2_k74h2"]
 
 [node name="ParentButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("1_cofon")
+button_sound = ExtResource("2_k74h2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k74h2")
 bus = &"SoundEffects"
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

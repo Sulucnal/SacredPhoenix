@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0d2wune1eawn"]
+
+[ext_resource type="PackedScene" uid="uid://dyxulstoqg4k" path="res://scenes/ui/bases/parent_button.tscn" id="1_g8d1r"]
+[ext_resource type="FontFile" uid="uid://dc00oj7d032bv" path="res://assets/fonts/PixAntiqua.ttf" id="2_hpbru"]
+[ext_resource type="Texture2D" uid="uid://cnsvt4cawefku" path="res://assets/graphics/ui/pause_menu/menu_button.png" id="2_oejnr"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu/pause_menu_button.gd" id="4_wxist"]
+[ext_resource type="Texture2D" uid="uid://1j5l1tfyk2o4" path="res://assets/graphics/ui/pause_menu/menu_icons.png" id="5_818vl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bedat"]
+texture = ExtResource("2_oejnr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jcth"]
+atlas = ExtResource("5_818vl")
+region = Rect2(0, 0, 23, 22)
+
+[sub_resource type="Animation" id="Animation_mem8y"]
+resource_name = "move"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, -0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_0ctxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lp60r"]
+_data = {
+"RESET": SubResource("Animation_0ctxw"),
+"move": SubResource("Animation_mem8y")
+}
+
+[node name="PauseMenuButton" instance=ExtResource("1_g8d1r")]
+texture_filter = 1
+custom_minimum_size = Vector2(126, 23)
+theme_override_fonts/font = ExtResource("2_hpbru")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_bedat")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bedat")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bedat")
+theme_override_styles/focus = SubResource("StyleBoxTexture_bedat")
+script = ExtResource("4_wxist")
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+layout_mode = 0
+offset_left = 12.0
+offset_right = 36.0
+offset_bottom = 24.0
+pivot_offset = Vector2(12, 12)
+mouse_filter = 2
+texture = SubResource("AtlasTexture_3jcth")
+
+[node name="OptionName" type="Label" parent="." index="2"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 6.0
+offset_right = 115.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.670588, 0.670588, 0.670588, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_hpbru")
+theme_override_font_sizes/font_size = 12
+text = "Pokégrimoire"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_lp60r")
+}
+
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
