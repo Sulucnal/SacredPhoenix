@@ -24,7 +24,7 @@ encounter_honey_tree = Array[Resource("res://resources/encounter/Encounter.gd")]
 encounter_phenomenon = Array[Resource("res://resources/encounter/Encounter.gd")]([])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04k4t"]
-size = Vector2(4192, 1568)
+size = Vector2(1632, 992)
 
 [node name="Map" type="Node2D"]
 y_sort_enabled = true

@@ -26,7 +26,7 @@ encounter_honey_tree = Array[Resource("res://resources/encounter/Encounter.gd")]
 encounter_phenomenon = Array[Resource("res://resources/encounter/Encounter.gd")]([])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04k4t"]
-size = Vector2(4192, 1568)
+size = Vector2(1632, 992)
 
 [node name="DebugWorld" instance=ExtResource("1_xla8v")]
 
@@ -64,24 +64,37 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(65545, 524298, 46, 131081, 524298, 47, 10, 589834, 45, 65546, 589834, 46, 11, 655370, 45, 65547, 655370, 46, 131083, 655370, 47, 65548, 720906, 46, 131084, 720906, 47, 131082, 589834, 47, 393233, 524298, 46, 458769, 524298, 47, 327698, 589834, 45, 393234, 589834, 46, 458770, 589834, 47, 327699, 655370, 45, 393235, 655370, 46, 458771, 655370, 47, 393236, 720906, 46, 458772, 720906, 47, 524308, 720906, 48, 524305, 524298, 48, 524306, 589834, 48, 524307, 655370, 48, 196620, 720906, 48, 196619, 655370, 48, 196618, 589834, 48, 196617, 524298, 48, 262151, 262154, 79, 327687, 262154, 80, 393223, 262154, 81, 262152, 327690, 79, 327688, 327690, 80, 262153, 393226, 79, 327689, 393226, 80, 262154, 458762, 79, 327690, 458762, 80, 393226, 458762, 81)
+layer_4/name = "Props3"
+layer_4/enabled = true
+layer_4/modulate = Color(1, 1, 1, 1)
+layer_4/y_sort_enabled = false
+layer_4/y_sort_origin = 0
+layer_4/z_index = 2
+layer_4/tile_data = PackedInt32Array()
+layer_5/name = "Doreground"
+layer_5/enabled = true
+layer_5/modulate = Color(1, 1, 1, 1)
+layer_5/y_sort_enabled = false
+layer_5/y_sort_origin = 0
+layer_5/z_index = 10
+layer_5/tile_data = PackedInt32Array()
 
 [node name="Interactables" type="Node2D" parent="PixelArt/Maps/Map" index="1"]
 
 [node name="Doors" type="Node2D" parent="PixelArt/Maps/Map" index="2"]
 
 [node name="MapDataTrigger" type="Area2D" parent="PixelArt/Maps/Map" index="3"]
-visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PixelArt/Maps/Map/MapDataTrigger" index="0"]
+position = Vector2(528, 304)
 shape = SubResource("RectangleShape2D_04k4t")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="PixelArt/Maps/Map" index="4"]
-visible = false
-position = Vector2(-1.90735e-06, -1.90735e-06)
-scale = Vector2(3.2, 3.2)
+position = Vector2(528, 304)
+scale = Vector2(81.6, 49.6)
 
 [node name="Player" parent="PixelArt/Maps" index="1" instance=ExtResource("5_n1oaf")]
 position = Vector2(224, 96)
