@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5eveqbghmp8"]
+
+[ext_resource type="Texture2D" uid="uid://c4hevei3s18t4" path="res://assets/graphics/tilesets/ext-phoenix-hill_._ingame.png" id="1_f5w6i"]
+[ext_resource type="Script" path="res://scenes/overworld/special_tiles/encounters/grass.gd" id="1_uxg5s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j40j"]
+atlas = ExtResource("1_f5w6i")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7kwn"]
+size = Vector2(1, 1)
+
+[node name="Grass" type="Area2D"]
+texture_filter = 1
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_uxg5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_7j40j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j7kwn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

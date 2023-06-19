@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxla4ft6q53pt"]
+[gd_scene load_steps=8 format=3 uid="uid://bxla4ft6q53pt"]
 
 [ext_resource type="Script" path="res://scenes/overworld/maps/map.gd" id="1_40hw1"]
 [ext_resource type="AudioStream" uid="uid://xi707nw2kkgd" path="res://assets/audio/music/Place - Phoenix Hill.ogg" id="2_3yfx1"]
 [ext_resource type="Script" path="res://resources/map_data/MapData.gd" id="2_ewqk0"]
 [ext_resource type="TileSet" uid="uid://cccn15o2s4whj" path="res://scenes/overworld/maps/tileset_base.tres" id="3_5rkkq"]
+[ext_resource type="PackedScene" uid="uid://ce8js2o0rp061" path="res://scenes/ui/overworld_hud/area_name.tscn" id="5_v4vhs"]
 
 [sub_resource type="Resource" id="Resource_8gfvr"]
 script = ExtResource("2_ewqk0")
@@ -29,7 +30,6 @@ encounter_phenomenon = Array[Resource("res://resources/encounter/Encounter.gd")]
 size = Vector2(1632, 992)
 
 [node name="Map" type="Node2D"]
-y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_40hw1")
 map_data = SubResource("Resource_8gfvr")
@@ -62,6 +62,20 @@ layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 0
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array()
+layer_4/name = "Props3"
+layer_4/enabled = true
+layer_4/modulate = Color(1, 1, 1, 1)
+layer_4/y_sort_enabled = false
+layer_4/y_sort_origin = 0
+layer_4/z_index = 2
+layer_4/tile_data = PackedInt32Array()
+layer_5/name = "Foreground"
+layer_5/enabled = true
+layer_5/modulate = Color(1, 1, 1, 1)
+layer_5/y_sort_enabled = false
+layer_5/y_sort_origin = 0
+layer_5/z_index = 10
+layer_5/tile_data = PackedInt32Array()
 
 [node name="Interactables" type="Node2D" parent="."]
 
@@ -80,5 +94,10 @@ shape = SubResource("RectangleShape2D_04k4t")
 visible = false
 position = Vector2(-1.90735e-06, -1.90735e-06)
 scale = Vector2(3.2, 3.2)
+
+[node name="UI_Overlay" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="AreaName" parent="UI_Overlay" instance=ExtResource("5_v4vhs")]
 
 [connection signal="body_entered" from="MapDataTrigger" to="." method="_on_map_data_trigger_body_entered"]

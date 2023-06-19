@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce8js2o0rp061"]
+
+[ext_resource type="Script" path="res://scenes/ui/overworld_hud/area_name.gd" id="1_hm5lw"]
+[ext_resource type="Texture2D" uid="uid://jg7sf3t8w0fj" path="res://assets/graphics/ui/location_panels/panel_29.png" id="2_0rkpl"]
+
+[node name="AreaName" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hm5lw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(320, 96)
+layout_mode = 0
+offset_top = -96.0
+offset_right = 320.0
+texture = ExtResource("2_0rkpl")
+stretch_mode = 2

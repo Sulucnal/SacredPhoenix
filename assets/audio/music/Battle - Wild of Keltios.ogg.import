@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tsk088b54jur"
+path="res://.godot/imported/Battle - Wild of Keltios.ogg-db321d9dfbcb44c4e61dc7ab90c3d2de.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/Battle - Wild of Keltios.ogg"
+dest_files=["res://.godot/imported/Battle - Wild of Keltios.ogg-db321d9dfbcb44c4e61dc7ab90c3d2de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

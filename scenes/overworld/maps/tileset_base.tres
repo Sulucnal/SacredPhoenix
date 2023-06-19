@@ -1,9 +1,11 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cccn15o2s4whj"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cccn15o2s4whj"]
 
 [ext_resource type="Texture2D" uid="uid://c4hevei3s18t4" path="res://assets/graphics/tilesets/ext-phoenix-hill_._ingame.png" id="1_mydol"]
+[ext_resource type="PackedScene" uid="uid://ch5eveqbghmp8" path="res://scenes/overworld/special_tiles/encounters/grass.tscn" id="1_o53io"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hoknx"]
-resource_name = "Instantiable scenes"
+resource_name = "EncounterArea"
+scenes/1/scene = ExtResource("1_o53io")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgcpj"]
 resource_name = "Phoenix Hill"
@@ -128,21 +130,15 @@ texture_region_size = Vector2i(32, 32)
 23:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 23:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 23:0/0/physics_layer_1/angular_velocity = 0.0
+0:1/animation_columns = 3
+0:1/animation_frame_0/duration = 0.5
+0:1/animation_frame_1/duration = 0.5
+0:1/animation_frame_2/duration = 0.5
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_1/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_1/angular_velocity = 0.0
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
@@ -234,21 +230,15 @@ texture_region_size = Vector2i(32, 32)
 23:1/0/physics_layer_0/angular_velocity = 0.0
 23:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 23:1/0/physics_layer_1/angular_velocity = 0.0
+0:2/animation_columns = 3
+0:2/animation_frame_0/duration = 0.5
+0:2/animation_frame_1/duration = 0.5
+0:2/animation_frame_2/duration = 0.5
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
 0:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_1/angular_velocity = 0.0
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_1/angular_velocity = 0.0
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_1/angular_velocity = 0.0
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0

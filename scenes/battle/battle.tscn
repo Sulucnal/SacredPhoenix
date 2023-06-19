@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxe8lkjgp8ekr"]
+
+[ext_resource type="Texture2D" uid="uid://cqr4mnel25qt1" path="res://assets/graphics/battlebacks/countryside_day.png" id="1_51wnk"]
+[ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_jy7kt"]
+[ext_resource type="PackedScene" uid="uid://dun1gs00k3wr4" path="res://scenes/other/effect_camera/effect_camera.tscn" id="2_qau8q"]
+
+[node name="Battle" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_jy7kt")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -496.0
+offset_top = -336.0
+offset_right = 144.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.54167, 1.56667)
+texture = ExtResource("1_51wnk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -208.0
+offset_right = 304.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]The scene where the battle should happen but I still haven't coded it. For now, you can leave using the Esc key."
+fit_content = true
+
+[node name="EffectCamera" parent="." instance=ExtResource("2_qau8q")]
