@@ -59,18 +59,6 @@ const BASE_SPRITEFRAME : SpriteFrames = preload("res://resources/species/base_sp
 ## To learn more about it, go to [url]https://bulbapedia.bulbagarden.net/wiki/Friendship[/url]
 ## To see the base friendship of regular Pokémon, go to [url]https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_base_friendship[/url]
 @export_range(0,255) var base_friendship : int = 50
-## The amount of EVs gained after defeating this Pokémon.[br]
-## The total of all of these values is between 1 and 3.
-## To learn more about it, go to [url]https://bulbapedia.bulbagarden.net/wiki/Effort_values[/url]
-## To see the effort value yield of regular Pokémon, go to [url]https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield[/url]
-@export var ev_yield : Dictionary = {
-	Health = 0,
-	Attack = 0,
-	Defense = 0,
-	SpecialAttack = 0,
-	SpecialDefense = 0,
-	Speed = 0
-}
 
 @export_group("Abilities")
 ## Mandatory. You [color=red]have[/color] to attribute an ability here.
@@ -146,7 +134,10 @@ const BASE_SPRITEFRAME : SpriteFrames = preload("res://resources/species/base_sp
 @export_range(1,255) var base_special_attack : int = 40
 @export_range(1,255) var base_special_defense : int = 40
 @export_range(1,255) var base_speed : int = 40
-## To learn more about base stats in general, go to [url]https://bulbapedia.bulbagarden.net/wiki/Base_stats[/url][br]
+## The amount of EVs gained after defeating this Pokémon.[br]
+## The total of all of these values is between 0 and 3.
+## To learn more about it, go to [url]https://bulbapedia.bulbagarden.net/wiki/Effort_values[/url]
+## To see the effort value yield of regular Pokémon, go to [url]https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_effort_value_yield[/url]
 @export_range(0,3) var ev_hp : int = 0
 @export_range(0,3) var ev_attack : int = 0
 @export_range(0,3) var ev_defense : int = 0
