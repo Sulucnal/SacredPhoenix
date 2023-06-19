@@ -560,3 +560,4 @@ bus = &"SoundEffects"
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("6_2f0fa")]
+visible = false

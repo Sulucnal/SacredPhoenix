@@ -13,6 +13,21 @@ texture = ExtResource("2_oejnr")
 atlas = ExtResource("5_818vl")
 region = Rect2(0, 0, 23, 22)
 
+[sub_resource type="Animation" id="Animation_0ctxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_mem8y"]
 resource_name = "move"
 loop_mode = 1
@@ -28,21 +43,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 0.261799, -0.261799]
-}
-
-[sub_resource type="Animation" id="Animation_0ctxw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lp60r"]
@@ -65,8 +65,9 @@ script = ExtResource("4_wxist")
 [node name="TextureRect" type="TextureRect" parent="." index="1"]
 layout_mode = 0
 offset_left = 12.0
+offset_top = -1.0
 offset_right = 36.0
-offset_bottom = 24.0
+offset_bottom = 23.0
 pivot_offset = Vector2(12, 12)
 mouse_filter = 2
 texture = SubResource("AtlasTexture_3jcth")

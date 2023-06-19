@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl2b06s7uh3e1"]
+[gd_scene load_steps=20 format=3 uid="uid://dl2b06s7uh3e1"]
 
 [ext_resource type="Shader" path="res://shaders/box_blur.gdshader" id="1_ftwb5"]
+[ext_resource type="Script" path="res://scenes/ui/pause_menu/pause_menu.gd" id="1_u5m6j"]
 [ext_resource type="PackedScene" uid="uid://c0d2wune1eawn" path="res://scenes/ui/pause_menu/pause_menu_button.tscn" id="2_xisfn"]
+[ext_resource type="Script" path="res://scripts/ui/v_box_menu.gd" id="3_5d6g1"]
 [ext_resource type="Texture2D" uid="uid://1j5l1tfyk2o4" path="res://assets/graphics/ui/pause_menu/menu_icons.png" id="3_vc4pl"]
 [ext_resource type="Texture2D" uid="uid://cv1yqqedc2x0m" path="res://assets/graphics/ui/pause_menu/horloge/Background date.png" id="4_1ph12"]
 [ext_resource type="Texture2D" uid="uid://c5i5bq8vvedor" path="res://assets/graphics/ui/pause_menu/horloge/Ete 64px.png" id="5_t244d"]
@@ -36,15 +38,127 @@ region = Rect2(0, 110, 23, 22)
 atlas = ExtResource("3_vc4pl")
 region = Rect2(0, 132, 23, 22)
 
+[sub_resource type="Animation" id="Animation_2l0c0"]
+resource_name = "animation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CalendarContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonsContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 0), Vector2(704, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BlurShaderRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hve71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CalendarContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonsContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BlurShaderRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbwfj"]
+_data = {
+"RESET": SubResource("Animation_hve71"),
+"animation": SubResource("Animation_2l0c0")
+}
+
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_u5m6j")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BlurShaderRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_rmnjo")
 layout_mode = 1
 anchors_preset = 15
@@ -58,8 +172,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -256.0
-offset_right = -128.0
+offset_left = 960.0
+offset_right = 1088.0
 offset_bottom = 249.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
@@ -68,67 +182,69 @@ theme_override_constants/margin_right = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ButtonsContainer"]
 layout_mode = 2
+script = ExtResource("3_5d6g1")
 
-[node name="PauseMenuButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="GrimoireButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="PauseMenuButton2" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="PokemonButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton2" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PokemonButton" index="1"]
 texture = SubResource("AtlasTexture_8ev7h")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton2" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PokemonButton" index="2"]
 text = "Pokémon
 "
 
-[node name="PauseMenuButton3" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="BagButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton3" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/BagButton" index="1"]
 texture = SubResource("AtlasTexture_7y5hs")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton3" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/BagButton" index="2"]
 text = "Bag"
 
-[node name="PauseMenuButton4" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="TrainerCardButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton4" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/TrainerCardButton" index="1"]
 texture = SubResource("AtlasTexture_xuyh5")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton4" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/TrainerCardButton" index="2"]
 text = "Aranel"
 
-[node name="PauseMenuButton5" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="SaveButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton5" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/SaveButton" index="1"]
 texture = SubResource("AtlasTexture_tkylw")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton5" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/SaveButton" index="2"]
 text = "Save
 "
 
-[node name="PauseMenuButton6" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="OptionsButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton6" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/OptionsButton" index="1"]
 texture = SubResource("AtlasTexture_5ue1i")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton6" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/OptionsButton" index="2"]
 text = "Options"
 
-[node name="PauseMenuButton7" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
+[node name="ExitButton" parent="ButtonsContainer/VBoxContainer" instance=ExtResource("2_xisfn")]
 layout_mode = 2
 
-[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/PauseMenuButton7" index="1"]
+[node name="TextureRect" parent="ButtonsContainer/VBoxContainer/ExitButton" index="1"]
 texture = SubResource("AtlasTexture_l3il5")
 
-[node name="OptionName" parent="ButtonsContainer/VBoxContainer/PauseMenuButton7" index="2"]
+[node name="OptionName" parent="ButtonsContainer/VBoxContainer/ExitButton" index="2"]
 text = "Exit"
 
 [node name="CalendarContainer" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -183,6 +299,7 @@ text = "Méria 2 Solios 500"
 horizontal_alignment = 1
 
 [node name="ClockContainer" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -220,9 +337,14 @@ theme_override_fonts/font = ExtResource("6_s4xuu")
 theme_override_font_sizes/font_size = 24
 text = "99:99"
 
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton2"]
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton3"]
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton4"]
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton5"]
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton6"]
-[editable path="ButtonsContainer/VBoxContainer/PauseMenuButton7"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fbwfj")
+}
+
+[editable path="ButtonsContainer/VBoxContainer/PokemonButton"]
+[editable path="ButtonsContainer/VBoxContainer/BagButton"]
+[editable path="ButtonsContainer/VBoxContainer/TrainerCardButton"]
+[editable path="ButtonsContainer/VBoxContainer/SaveButton"]
+[editable path="ButtonsContainer/VBoxContainer/OptionsButton"]
+[editable path="ButtonsContainer/VBoxContainer/ExitButton"]

@@ -27,13 +27,19 @@ const BASE_SPRITEFRAME : SpriteFrames = preload("res://resources/species/base_sp
 @export var spritesheet : SpriteFrames = BASE_SPRITEFRAME
 ## Define wether the Pokémon is an Ultra-Beast or not (and by extension, the catch rate a Beast ball has on it).
 @export var is_ultra_beast : bool = false
+## Define the Pokémon lineage:
+@export var lineage : Species
+## Tells wether the Pokémon is still in its juvenile state.
+@export var juvenile : bool = false
 
 @export_group("Types")
 ## Mandatory. You [color=red]have[/color] to attribute a type here.
-## To do so, drag and drop a type from [kbd]res://addons/godomon/Resources/Type[/kbd]
+## To do so, drag and drop a type from [kbd]res://resources/types[/kbd]
 @export var type1 : Resource
 ## Optional second type.
 @export var type2 : Resource
+## A list of all of the secondary affinities of this Pokémon.
+@export var secondary_affinities : Array[Resource]
 
 @export_group("Growth")
 ## A number used in the calculation of the experience
@@ -140,6 +146,13 @@ const BASE_SPRITEFRAME : SpriteFrames = preload("res://resources/species/base_sp
 @export_range(1,255) var base_special_attack : int = 40
 @export_range(1,255) var base_special_defense : int = 40
 @export_range(1,255) var base_speed : int = 40
+## To learn more about base stats in general, go to [url]https://bulbapedia.bulbagarden.net/wiki/Base_stats[/url][br]
+@export_range(0,3) var ev_hp : int = 0
+@export_range(0,3) var ev_attack : int = 0
+@export_range(0,3) var ev_defense : int = 0
+@export_range(0,3) var ev_special_attack : int = 0
+@export_range(0,3) var ev_special_defense : int = 0
+@export_range(0,3) var ev_speed : int = 0
 
 @export_group("Movesets")
 ## Mandatory. You [color=red]have[/color] to add at least a LevelUpMove here.[br]
@@ -153,3 +166,6 @@ const BASE_SPRITEFRAME : SpriteFrames = preload("res://resources/species/base_sp
 @export var evolution_moves : Array[Resource]
 @export var tutor_moves : Array[Resource]
 @export var egg_moves : Array[Resource]
+
+@export var shadow_moves : Array[Resource]
+@export var light_moves : Array[Resource]

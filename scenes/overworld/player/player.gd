@@ -11,6 +11,8 @@ const RUN_SPEED : float = 8.0
 @onready var bump_stream_player: AudioStreamPlayer = $BumpStreamPlayer
 @onready var sprite: Sprite2D = $Sprite
 
+@onready var pause_menu: Control = $UI/PauseMenu
+
 
 @export var player_data : PlayerData
 
@@ -83,6 +85,11 @@ func process_player_input() -> void:
 			is_moving = true
 	else:
 		anim_state.travel("Idle")
+
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("menu"):
+		pause_menu.animate()
 
 
 func need_to_turn() -> bool:
