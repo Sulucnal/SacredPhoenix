@@ -28,6 +28,11 @@ func debug() -> void: # Should be deleted later
 
 func set_wild_encounter() -> void:
 	pokemon_to_fight = Pokemon.new()
-	pokemon_to_fight.species = (math.random_weighted(ReferenceStash.current_encounter_pool)).species
+	var encounter : Encounter = math.random_weighted(ReferenceStash.current_encounter_pool)
+	pokemon_to_fight.species = encounter.species
+	randomize()
+	pokemon_to_fight.level = randi_range(encounter.minimum_level, encounter.maximum_level)
+	
 	opponent_sprite.texture = pokemon_to_fight.species.spritesheet.get_frame_texture("Front", 0)
-	print("You are fighting a " + pokemon_to_fight.species.name)
+	
+	print("You are fighting a " + pokemon_to_fight.species.name + "(Level " + str(pokemon_to_fight.level) + ")")

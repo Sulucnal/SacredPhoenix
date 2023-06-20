@@ -8,7 +8,7 @@ func random_weighted(list_to_sort : Array) -> Variant:
 		total_weight += list_to_sort[i].weight
 	
 	randomize()
-	var random_value : int = randi_range(0, total_weight)
+	var random_value : int = randi_range(1, total_weight)
 	var incrementer : int = 0
 	var current_weight : int = list_to_sort[0].weight
 	while random_value > current_weight:
