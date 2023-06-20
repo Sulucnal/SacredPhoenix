@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/other/effect_camera.gd" id="1_kals6"]
 
 [node name="EffectCamera" type="Camera2D"]
+process_mode = 3
 script = ExtResource("1_kals6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,4 +1,6 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://b6ijjy7ceiroi"]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b6ijjy7ceiroi"]
+
+[ext_resource type="Texture2D" uid="uid://ddjxba200w4g0" path="res://assets/graphics/pokemon/gen1/venusaur/002.png" id="1_l4y0y"]
 
 [resource]
 animations = [{
@@ -22,7 +24,10 @@ animations = [{
 "name": &"Egg_Icon",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_l4y0y")
+}],
 "loop": true,
 "name": &"Front",
 "speed": 5.0

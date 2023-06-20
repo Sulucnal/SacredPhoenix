@@ -11,6 +11,7 @@ const RUN_SPEED : float = 8.0
 @onready var bump_stream_player: AudioStreamPlayer = $BumpStreamPlayer
 @onready var sprite: Sprite2D = $Sprite
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var camera: Camera2D = $Camera
 
 @onready var pause_menu: Control = $UI/PauseMenu
 

@@ -29,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -208.0
-offset_right = 304.0
-offset_bottom = 208.0
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 128.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,3 +53,11 @@ text = "[center]The scene where the battle should happen but I still haven't cod
 fit_content = true
 
 [node name="EffectCamera" parent="." instance=ExtResource("2_qau8q")]
+
+[node name="OpponentSprite" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 208.0
+offset_top = -176.0
+offset_right = 248.0
+offset_bottom = -136.0
+scale = Vector2(2, 2)

@@ -49,6 +49,7 @@ func flash(duration : float = 0.5, hold_time : float = 0.0, color : Color = Colo
 	tween.tween_property(color_rect, "modulate", Color(1,1,1,1), half_duration).set_ease(Tween.EASE_IN)
 	tween.tween_property(color_rect, "modulate", Color(1,1,1,0), half_duration).set_ease(Tween.EASE_OUT).set_delay(hold_time)
 	await tween.finished
+	Events.ui_animation_finished.emit()
 	if duration != 0.0:
 		Events.ui_animation_finished.emit()
 

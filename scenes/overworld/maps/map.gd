@@ -14,6 +14,11 @@ func _ready() -> void:
 
 
 func _on_map_data_trigger_body_entered(body: Node2D) -> void:
+	#debug only
+	ReferenceStash.player = body
+	#========
+	ReferenceStash.current_map_data = map_data
+	
 	await get_tree().process_frame
 	if body is Player:
 		AudioPlayer.play_area_music(self)

@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="Species" load_steps=4 format=3 uid="uid://b3d48xl7bq6lt"]
+
+[ext_resource type="Script" path="res://resources/species/Species.gd" id="1_s6ekt"]
+[ext_resource type="Texture2D" uid="uid://ddjxba200w4g0" path="res://assets/graphics/pokemon/gen1/venusaur/002.png" id="2_f83fi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nq21y"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"BackShiny",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Egg",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Egg_Icon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f83fi")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"FrontShiny",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Icon",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Icon_Shiny",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_s6ekt")
+id = "VENUSAUR"
+name = "Venusaur"
+form_name = ""
+spritesheet = SubResource("SpriteFrames_nq21y")
+is_ultra_beast = false
+juvenile = false
+secondary_affinities = Array[Resource]([])
+base_exp_yield = 36
+experience_group = "Medium Fast"
+catch_rate = 255
+base_friendship = 50
+gender_ratio = 50
+is_genderless = false
+can_breed = true
+egg_group1 = "NoEggsDiscovered"
+egg_group2 = "None"
+hatch_steps = 5120
+egg_cycles = 20
+evolutions = Array[Resource]([])
+regional_pokedex_number = 0
+national_pokedex_number = 0
+height = 1.0
+weight = 1.0
+color = "Red"
+shape = "Only Head"
+category = ""
+pokedex_entry = ""
+base_hp = 40
+base_attack = 40
+base_defense = 40
+base_special_attack = 40
+base_special_defense = 40
+base_speed = 40
+ev_hp = 0
+ev_attack = 0
+ev_defense = 0
+ev_special_attack = 0
+ev_special_defense = 0
+ev_speed = 0
+level_up_moves = Array[Resource]([])
+evolution_moves = Array[Resource]([])
+tutor_moves = Array[Resource]([])
+egg_moves = Array[Resource]([])
+shadow_moves = Array[Resource]([])
+light_moves = Array[Resource]([])
