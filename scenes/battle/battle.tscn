@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxe8lkjgp8ekr"]
+[gd_scene load_steps=10 format=3 uid="uid://dxe8lkjgp8ekr"]
 
 [ext_resource type="Texture2D" uid="uid://cqr4mnel25qt1" path="res://assets/graphics/battlebacks/countryside_day.png" id="1_51wnk"]
 [ext_resource type="Script" path="res://scenes/battle/battle.gd" id="1_jy7kt"]
 [ext_resource type="PackedScene" uid="uid://dun1gs00k3wr4" path="res://scenes/other/effect_camera/effect_camera.tscn" id="2_qau8q"]
+[ext_resource type="Texture2D" uid="uid://dw8dd1rucagrv" path="res://assets/graphics/ui/battles/battlebar_enemy.png" id="4_psmfv"]
+[ext_resource type="Texture2D" uid="uid://cjht5nfqm86cr" path="res://assets/graphics/ui/battles/battlebar_hp.png" id="5_30kuh"]
+[ext_resource type="FontFile" uid="uid://dc00oj7d032bv" path="res://assets/fonts/PixAntiqua.ttf" id="6_barv2"]
+[ext_resource type="Texture2D" uid="uid://d3r112jcjiy4v" path="res://assets/graphics/ui/battles/battlebar_gender_small.png" id="7_bafij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy0ss"]
+atlas = ExtResource("5_30kuh")
+region = Rect2(0, 12, 48, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km8ni"]
+atlas = ExtResource("7_bafij")
+region = Rect2(7, 0, 7, 11)
 
 [node name="Battle" type="Node2D"]
 process_mode = 3
@@ -23,7 +35,8 @@ grow_vertical = 2
 scale = Vector2(1.54167, 1.56667)
 texture = ExtResource("1_51wnk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Temp" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,7 +49,7 @@ offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Temp"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -61,3 +74,67 @@ offset_top = -176.0
 offset_right = 248.0
 offset_bottom = -136.0
 scale = Vector2(2, 2)
+
+[node name="OpponentBar" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+
+[node name="ProgressBar" type="TextureProgressBar" parent="OpponentBar"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -184.0
+offset_top = -104.0
+offset_right = -56.0
+offset_bottom = -64.0
+value = 100.0
+texture_under = ExtResource("4_psmfv")
+texture_progress = SubResource("AtlasTexture_vy0ss")
+texture_progress_offset = Vector2(63, 18)
+
+[node name="NameLabel" type="Label" parent="OpponentBar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -4.3
+anchor_top = -2.1625
+anchor_right = -4.3
+anchor_bottom = -2.1625
+offset_left = 1.52588e-05
+offset_top = -15.0
+offset_right = 79.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.498039)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_barv2")
+theme_override_font_sizes/font_size = 12
+text = "Bulbasaur"
+metadata/_edit_use_anchors_ = true
+
+[node name="GenderTexture" type="TextureRect" parent="OpponentBar"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -111.5
+offset_top = -101.0
+offset_right = -104.5
+offset_bottom = -90.0
+texture = SubResource("AtlasTexture_km8ni")
+stretch_mode = 2
+
+[node name="LevelLabel" type="Label" parent="OpponentBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.35
+anchor_top = -2.5125
+anchor_right = -2.35
+anchor_bottom = -2.5125
+offset_right = 14.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.498039)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_barv2")
+theme_override_font_sizes/font_size = 12
+text = "99"
+metadata/_edit_use_anchors_ = true

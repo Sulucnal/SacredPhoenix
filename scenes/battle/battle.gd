@@ -2,11 +2,13 @@ extends Node2D
 
 
 @onready var opponent_sprite: TextureRect = $OpponentSprite
+@onready var progress_bar: TextureProgressBar = $OpponentBar/ProgressBar
+@onready var name_label: Label = $OpponentBar/NameLabel
+@onready var gender_texture: TextureRect = $OpponentBar/GenderTexture
+@onready var level_label: Label = $OpponentBar/LevelLabel
 
 
 var pokemon_to_fight : Pokemon
-
-var math : Math = Math.new()
 
 
 func _ready() -> void:
@@ -28,11 +30,27 @@ func debug() -> void: # Should be deleted later
 
 func set_wild_encounter() -> void:
 	pokemon_to_fight = Pokemon.new()
-	var encounter : Encounter = math.random_weighted(ReferenceStash.current_encounter_pool)
+	var encounter : Encounter = Math.random_weighted(ReferenceStash.current_encounter_pool)
 	pokemon_to_fight.species = encounter.species
+	opponent_sprite.texture = pokemon_to_fight.species.spritesheet.get_frame_texture("Front", 0)
+	name_label.text = pokemon_to_fight.species.name
 	randomize()
 	pokemon_to_fight.level = randi_range(encounter.minimum_level, encounter.maximum_level)
+	level_label.text = str(pokemon_to_fight.level)
 	
-	opponent_sprite.texture = pokemon_to_fight.species.spritesheet.get_frame_texture("Front", 0)
+	gender_attribution()
+	set_life_bar()
 	
-	print("You are fighting a " + pokemon_to_fight.species.name + "(Level " + str(pokemon_to_fight.level) + ")")
+	print("You are fighting a " + pokemon_to_fight.species.name + "(Level " + str(pokemon_to_fight.level) + ")") # Temporary debug thing
+
+
+func gender_attribution() -> void: #TEMPORARY
+	var gender : int = randi_range(1,2)
+	if gender == 1:
+		pokemon_to_fight.gender = "Male"
+	else:
+		pokemon_to_fight.gender = "Female"
+	gender_texture.texture.region.position.x = 7 * gender
+
+func set_life_bar() -> void:
+	pass

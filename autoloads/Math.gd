@@ -1,5 +1,4 @@
 extends Node
-class_name Math
 
 
 func random_weighted(list_to_sort : Array) -> Variant:

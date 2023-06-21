@@ -24,6 +24,7 @@ ReferenceStash="*res://autoloads/ReferenceStash.gd"
 SceneStack="*res://autoloads/SceneStack.gd"
 WorldStash="*res://autoloads/WorldStash.gd"
 GameConstants="*res://autoloads/GameConstants.gd"
+Math="*res://autoloads/Math.gd"
 
 [display]
 
