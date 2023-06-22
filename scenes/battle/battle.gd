@@ -40,8 +40,6 @@ func set_wild_encounter() -> void:
 	
 	gender_attribution()
 	set_life_bar()
-	
-	print("You are fighting a " + pokemon_to_fight.species.name + "(Level " + str(pokemon_to_fight.level) + ")") # Temporary debug thing
 
 
 func gender_attribution() -> void: #TEMPORARY

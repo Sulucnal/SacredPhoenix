@@ -11,3 +11,6 @@ var current_map_data : MapData
 var current_encounter_pool : Array[Encounter]
 
 var current_battle_type : String
+
+var dialog_item : ItemQuantity
+

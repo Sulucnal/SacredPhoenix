@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvw11ftb3la2w"]
+
+[ext_resource type="PackedScene" uid="uid://kpxnqq4f5ghg" path="res://scenes/overworld/npcs/npc_base.tscn" id="1_u1a7i"]
+[ext_resource type="Script" path="res://scenes/overworld/npcs/MapTest1/scepter_npc.gd" id="2_yg6qm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw2vd"]
+size = Vector2(32, 32)
+
+[node name="ScepterNPC" instance=ExtResource("1_u1a7i")]
+script = ExtResource("2_yg6qm")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_nw2vd")

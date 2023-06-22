@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://kpxnqq4f5ghg"]
+
+[ext_resource type="Script" path="res://scenes/overworld/npcs/npc_base.gd" id="1_7lu2o"]
+[ext_resource type="Texture2D" uid="uid://dquued8uvgo8f" path="res://assets/graphics/spritesheets/npcs/Elder_m_0.png" id="1_u5neg"]
+[ext_resource type="PackedScene" uid="uid://denv16nanbrf0" path="res://scenes/overworld/interactable/interactable.tscn" id="3_subqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g54ni"]
+size = Vector2(32, 32)
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource("1_7lu2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
+texture = ExtResource("1_u5neg")
+hframes = 4
+vframes = 4
+
+[node name="Interactable" parent="." instance=ExtResource("3_subqa")]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_g54ni")

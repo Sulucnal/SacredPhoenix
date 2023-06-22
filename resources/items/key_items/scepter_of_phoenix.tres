@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cgon4e1tlbjqx"]
+
+[ext_resource type="Script" path="res://resources/items/Item.gd" id="1_lymln"]
+[ext_resource type="Texture2D" uid="uid://cwahrskibmayj" path="res://assets/graphics/items/rare_items/Scepter.png" id="2_otfw8"]
+
+[resource]
+script = ExtResource("1_lymln")
+name = "Scepter of Phoenix"
+description = "Legendary scepter tied to Ho-Oh. Impregnated with the Energy of Nature, its Mystical Stone allows the use of powerful magic."
+pocket = "Key Items"
+texture = ExtResource("2_otfw8")
+infinite = true

@@ -15,6 +15,8 @@ const RUN_SPEED : float = 8.0
 
 @onready var pause_menu: Control = $UI/PauseMenu
 
+@onready var interactable_detector: Area2D = $InteractableDetector
+
 
 @export var player_data : PlayerData
 
@@ -77,6 +79,8 @@ func process_player_input() -> void:
 		animation_tree.set("parameters/Turn/blend_position", input_direction)
 		animation_tree.set("parameters/Run/blend_position", input_direction)
 		
+		interactable_detector.rotation = input_direction.angle()
+		
 		if need_to_turn():
 			raycast.target_position = input_direction * GameConstants.TILE_SIZE / 2
 			raycast.force_raycast_update()
@@ -92,6 +96,12 @@ func process_player_input() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("menu"):
 		pause_menu.animate()
+	
+	if Input.is_action_just_pressed("accept"):
+		var interactable : Array = interactable_detector.get_overlapping_areas()
+		if not interactable.is_empty():
+			interactable[0].get_parent()._run_interaction()
+			get_viewport().set_input_as_handled()
 
 
 func need_to_turn() -> bool:

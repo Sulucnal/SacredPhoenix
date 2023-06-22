@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dhvrvc78d0uf5"]
+[gd_scene load_steps=62 format=3 uid="uid://dhvrvc78d0uf5"]
 
 [ext_resource type="PackedScene" uid="uid://dun1gs00k3wr4" path="res://scenes/other/effect_camera/effect_camera.tscn" id="1_j65yl"]
 [ext_resource type="Script" path="res://scenes/overworld/player/player.gd" id="1_tjoyb"]
@@ -513,11 +513,14 @@ graph_offset = Vector2(-71, 398)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7jb84"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pcrs"]
+size = Vector2(8, 8)
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 script = ExtResource("1_tjoyb")
 player_data = ExtResource("2_6sumn")
 
@@ -562,3 +565,14 @@ layer = 100
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("6_2f0fa")]
 visible = false
+
+[node name="InteractableDetector" type="Area2D" parent="."]
+position = Vector2(16, 16)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDetector"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_6pcrs")
+debug_color = Color(0.701961, 0.109804, 0, 0.419608)

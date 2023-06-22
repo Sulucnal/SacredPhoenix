@@ -36,16 +36,15 @@ scale = Vector2(1.54167, 1.56667)
 texture = ExtResource("1_51wnk")
 
 [node name="Temp" type="ColorRect" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
-offset_top = -270.0
-offset_right = 128.0
-offset_bottom = 146.0
+offset_top = 45.0
+offset_right = -112.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -69,11 +68,17 @@ fit_content = true
 
 [node name="OpponentSprite" type="TextureRect" parent="."]
 texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 208.0
 offset_top = -176.0
 offset_right = 248.0
 offset_bottom = -136.0
+grow_vertical = 0
 scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="OpponentBar" type="Control" parent="."]
 texture_filter = 1
@@ -82,6 +87,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
 
 [node name="ProgressBar" type="TextureProgressBar" parent="OpponentBar"]
 texture_filter = 1
@@ -99,10 +105,10 @@ texture_progress_offset = Vector2(63, 18)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -4.3
-anchor_top = -2.1625
-anchor_right = -4.3
-anchor_bottom = -2.1625
+anchor_left = -4.8
+anchor_top = -2.175
+anchor_right = -4.8
+anchor_bottom = -2.175
 offset_left = 1.52588e-05
 offset_top = -15.0
 offset_right = 79.0
@@ -111,6 +117,7 @@ theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("6_barv2")
 theme_override_font_sizes/font_size = 12
 text = "Bulbasaur"
+horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="GenderTexture" type="TextureRect" parent="OpponentBar"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_8"
+type="Resource"
+uid="uid://co2178jwu6xgd"
+path="res://.godot/imported/scepter_npc.dialogue-b8574013b49e83b680f2a8538c1e190b.tres"
+
+[deps]
+
+source_file="res://dialogs/scepter_npc.dialogue"
+dest_files=["res://.godot/imported/scepter_npc.dialogue-b8574013b49e83b680f2a8538c1e190b.tres"]
+
+[params]
+
+defaults=true

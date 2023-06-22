@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqwmqi1p51sst"]
+
+[ext_resource type="Script" path="res://scenes/overworld/special_tiles/chest.gd" id="1_6y773"]
+[ext_resource type="Texture2D" uid="uid://7fjusjykcx2e" path="res://assets/graphics/spritesheets/other/Chest 1.png" id="1_x5ip1"]
+[ext_resource type="PackedScene" uid="uid://denv16nanbrf0" path="res://scenes/overworld/interactable/interactable.tscn" id="3_88gff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goey5"]
+atlas = ExtResource("1_x5ip1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps23y"]
+atlas = ExtResource("1_x5ip1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6ib2"]
+atlas = ExtResource("1_x5ip1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6pgl"]
+atlas = ExtResource("1_x5ip1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jn6pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goey5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps23y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6ib2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6pgl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abxn3"]
+size = Vector2(32, 32)
+
+[node name="Chest" type="StaticBody2D"]
+process_mode = 3
+texture_filter = 1
+collision_mask = 0
+script = ExtResource("1_6y773")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_jn6pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_abxn3")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Interactable" parent="." instance=ExtResource("3_88gff")]
+position = Vector2(16, 16)

@@ -1,0 +1,17 @@
+~ base_talk
+
+if ReferenceStash.player.player_data.has_scepter == false:
+	Don't even dare talk to me if you don't have a scepter!
+	You can get one in the chest on your right.
+	=> END
+else:
+	Great, you have a scepter. Well, you still can't use it since the inventory system hasn't been coded yet, but hey, at least you look cool!
+	=> already_talked
+
+~ already_talked
+
+Do you like your new scepter?
+- Yes
+	That's great, it do look pretty dope!
+- No
+	The one who designed it isn't gonna be happy about that...
